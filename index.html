@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Etch-A-Sketch</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        
+        function createRow(){
+            const row = document.createElement('div');
+            row.classList.add('row');
+            return row;
+        }
+
+        function fillRow() {
+            const filledRow = createRow();
+            for (let i = 0; i < 16; i++) {
+                const grid = createGrid();
+                filledRow.appendChild(grid);
+            }
+            return filledRow;
+        }
+
+        function createGrid(){
+            const grid = document.createElement('div');
+            grid.classList.add('grid');
+
+            return grid;
+        }
+
+        for (let i = 0; i < 16; i++){
+            let rows = fillRow();
+            container.appendChild(rows);
+        }
+    </script>
+</body>
+</html>
