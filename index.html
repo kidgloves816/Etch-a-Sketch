@@ -34,9 +34,19 @@
             return grid;
         }
 
+        function changeColor(event){
+            this.style.backgroundColor = 'blue';
+        }
+
         for (let i = 0; i < 16; i++){
             let rows = fillRow();
             container.appendChild(rows);
+        }
+
+        let grids = document.querySelectorAll('.grid');
+
+        for (let i = 0; i < grids.length; i++){
+            grids[i].addEventListener('mouseover',changeColor);
         }
     </script>
 </body>
