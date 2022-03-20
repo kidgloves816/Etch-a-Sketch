@@ -13,7 +13,7 @@ html, body {
     justify-self: center;
 }
 .grid {
-    background-color: aqua;
+    background-color: lightgray;
     box-sizing: border-box;
     height: 20px;
     width: 20px;
