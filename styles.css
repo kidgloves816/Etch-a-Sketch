@@ -1,6 +1,7 @@
 html, body {
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
@@ -11,15 +12,21 @@ html, body {
     justify-content: center;
     align-content: center;
     justify-self: center;
+    width: 700px;
+    height: 700px;
+    background-color: aqua;
+    flex-basis: 1;
 }
 .grid {
     background-color: lightgray;
     box-sizing: border-box;
-    height: 20px;
-    width: 20px;
+    /* height: 20px;
+    width: 20px; */
     border-color: black;
     border-width: 2px;
     border-style: solid;
+    flex: 1;
+    aspect-ratio: 1/1;
 }
 
 .row {
@@ -27,4 +34,17 @@ html, body {
     justify-content: center;
     margin: 0;
     padding: 0;
+}
+
+.controls{
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-items: center;
+    flex: 1;
+    margin-bottom: auto;
+}
+
+h1{
+    margin: 0;
 }
