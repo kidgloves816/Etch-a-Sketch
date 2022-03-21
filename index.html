@@ -6,11 +6,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="controls"><button class="Reset">Reset Grids</button></div>
     <div class="container">
     </div>
 
     <script>
         const container = document.querySelector('.container');
+        const resetButton = document.querySelector('button');
         
         function createRow(){
             const row = document.createElement('div');
@@ -18,9 +20,9 @@
             return row;
         }
 
-        function fillRow() {
+        function fillRow(rowLength) {
             const filledRow = createRow();
-            for (let i = 0; i < 16; i++) {
+            for (let i = 0; i < rowLength; i++) {
                 const grid = createGrid();
                 filledRow.appendChild(grid);
             }
@@ -35,19 +37,41 @@
         }
 
         function changeColor(event){
-            this.style.backgroundColor = 'blue';
+            this.style.backgroundColor = 'rgb(' + (Math.floor(Math.random()*256)) + ',' + (Math.floor(Math.random()*256)) + ',' + (Math.floor(Math.random()*256)) + ')';
         }
 
-        for (let i = 0; i < 16; i++){
-            let rows = fillRow();
-            container.appendChild(rows);
+        function attachRows(numberOfRows,rowLength){
+            for (let i = 0; i < numberOfRows; i++){
+                let rows = fillRow(rowLength);
+                container.appendChild(rows);
+            }
         }
+
+        attachRows(16,16);
 
         let grids = document.querySelectorAll('.grid');
 
         for (let i = 0; i < grids.length; i++){
             grids[i].addEventListener('mouseover',changeColor);
         }
+
+        function resetGridColor(){
+            let grids = document.querySelectorAll('.grid');
+            gridArray.forEach(item => item.style.backgroundColor = 'lightgray');        }
+
+        resetButton.onclick = () => {let grids = document.querySelectorAll('.grid');
+            grids.forEach(item => item.remove());
+            let gridLength = +prompt('Length of grid in squares? 100 or less',);
+            while(true){
+                if (gridLength > 100 || gridLength < 1) 
+                    gridLength = +prompt('Length of grid in squares? between 1-100',);
+                else break;
+                }
+            attachRows(gridLength,gridLength);
+            grids = document.querySelectorAll('.grid');
+            for (let i = 0; i < grids.length; i++){
+                grids[i].addEventListener('mouseover',changeColor);}
+            }
     </script>
 </body>
 </html>
